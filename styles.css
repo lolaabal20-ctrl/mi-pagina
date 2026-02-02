@@ -1,0 +1,82 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: linear-gradient(160deg, #0b0f19, #0f1730);
+  color: #e9eefc;
+  min-height: 100vh;
+  padding: 40px 16px;
+}
+
+h1 {
+  max-width: 680px;
+  margin: 0 auto 16px;
+  font-size: 28px;
+  letter-spacing: 0.2px;
+}
+
+#formulario {
+  max-width: 680px;
+  margin: 0 auto 14px;
+  padding: 16px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  backdrop-filter: blur(8px);
+}
+
+#mensaje {
+  width: 100%;
+  min-height: 110px;
+  resize: vertical;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(0,0,0,0.25);
+  color: #e9eefc;
+  outline: none;
+}
+
+#mensaje::placeholder {
+  color: rgba(233,238,252,0.55);
+}
+
+button[type="submit"] {
+  margin-top: 12px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: linear-gradient(135deg, #7c5cff, #5b8cff);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  filter: brightness(1.05);
+}
+
+#estado {
+  max-width: 680px;
+  margin: 10px auto 18px;
+  color: rgba(233,238,252,0.8);
+}
+
+#listaMensajes {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 10px;
+}
+
+#listaMensajes li {
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.10);
+  line-height: 1.35;
+  white-space: pre-wrap;
+}
