@@ -1,14 +1,14 @@
 * { box-sizing: border-box; }
 
 :root{
-  --bg1:#0f1020;
-  --bg2:#12132a;
-  --card:#151736;
-  --text:#f3f4ff;
-  --muted:#aeb2ff;
-  --line:rgba(255,255,255,0.12);
-  --btn:#7c5cff;
-  --btn2:#9a86ff;
+  --bg1:#2b1d16;
+  --bg2:#3a241b;
+  --card:#4a2e23;
+  --text:#fff3e8;
+  --muted:#e0c2a8;
+  --line:rgba(255,243,232,0.18);
+  --btn:#c86b3c;
+  --btn2:#e08a5b;
 }
 
 body{
@@ -17,8 +17,8 @@ body{
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   color: var(--text);
   background:
-    radial-gradient(900px 500px at 10% 10%, rgba(124,92,255,0.35), transparent 60%),
-    radial-gradient(700px 500px at 90% 20%, rgba(154,134,255,0.25), transparent 55%),
+    radial-gradient(900px 500px at 10% 10%, rgba(200,107,60,0.35), transparent 60%),
+    radial-gradient(700px 500px at 90% 20%, rgba(224,138,91,0.25), transparent 55%),
     linear-gradient(180deg, var(--bg1), var(--bg2));
 }
 
@@ -28,7 +28,7 @@ body{
 }
 
 .card{
-  background: rgba(21,23,54,0.78);
+  background: rgba(74,46,35,0.78);
   border: 1px solid var(--line);
   border-radius: 18px;
   padding: 22px;
@@ -74,12 +74,12 @@ textarea{
 }
 
 textarea::placeholder{
-  color: rgba(243,244,255,0.55);
+  color: rgba(255,243,232,0.55);
 }
 
 textarea:focus{
-  border-color: rgba(124,92,255,0.7);
-  box-shadow: 0 0 0 3px rgba(124,92,255,0.18);
+  border-color: rgba(200,107,60,0.7);
+  box-shadow: 0 0 0 3px rgba(200,107,60,0.18);
 }
 
 .actions{
@@ -97,7 +97,7 @@ textarea:focus{
   color: white;
   cursor: pointer;
   background: linear-gradient(180deg, var(--btn), var(--btn2));
-  box-shadow: 0 10px 25px rgba(124,92,255,0.25);
+  box-shadow: 0 10px 25px rgba(200,107,60,0.25);
 }
 
 .btn:hover{
@@ -144,7 +144,7 @@ textarea:focus{
 
 .footer{
   text-align:center;
-  color: rgba(243,244,255,0.55);
+  color: rgba(255,243,232,0.55);
   font-size: 12px;
   margin-top: 16px;
 }
