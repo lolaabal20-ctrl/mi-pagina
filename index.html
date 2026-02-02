@@ -1,24 +1,40 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Mi página</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css" />
 </head>
-
 <body>
 
-  <h1>Dejá tu mensaje</h1>
+  <main class="wrap">
+    <section class="card">
+      <header class="header">
+        <h1>Dejá tu mensaje</h1>
+        <p class="subtitle">Un buzón simple para escribir algo lindo ✨</p>
+      </header>
 
-  <form id="formulario">
-    <textarea id="mensaje" placeholder="Escribí acá"></textarea>
-    <br><br>
-    <button type="submit">Enviar</button>
-  </form>
+      <form id="formulario" class="form">
+        <label class="label" for="mensaje">Tu mensaje</label>
+        <textarea id="mensaje" placeholder="Escribí acá..."></textarea>
 
-  <p id="estado"></p>
+        <div class="actions">
+          <button type="submit" class="btn">Enviar</button>
+          <span id="estado" class="estado"></span>
+        </div>
+      </form>
 
-  <ul id="listaMensajes"></ul>
+      <hr class="divider" />
+
+      <h2 class="sectionTitle">Mensajes</h2>
+      <ul id="listaMensajes" class="lista"></ul>
+    </section>
+
+    <footer class="footer">
+      Hecho con 💚
+    </footer>
+  </main>
 
   <script src="script.js"></script>
 </body>
