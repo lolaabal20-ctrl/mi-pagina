@@ -9,43 +9,56 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static(__dirname));
 
-const supabase = createClient(
-  process.env.SUPABASE_URL,
-  process.env.SUPABASE_KEY
-);
+const supabaseUrl = process.env.SUPABASE_URL;
+const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+
+if (!supabaseUrl || !supabaseServiceKey) {
+  console.error("Faltan SUPABASE_URL o SUPABASE_SERVICE_ROLE_KEY en variables de entorno");
+}
+
+const supabase = createClient(supabaseUrl, supabaseServiceKey);
 
 app.get("/mensajes", async (req, res) => {
-  const { data, error } = await supabase
-    .from("mensajes")
-    .select("texto")
-    .order("creado_en", { ascending: true });
+  try {
+    const { data, error } = await supabase
+      .from("mensajes")
+      .select("id, texto, creado_en")
+      .order("id", { ascending: false });
 
-  if (error) {
-    return res.status(500).json({ error: error.message });
+    if (error) throw error;
+
+    res.json(data);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("error");
   }
-
-  res.json(data);
 });
 
 app.post("/mensajes", async (req, res) => {
-  const texto = req.body.texto;
+  try {
+    const texto = req.body.texto;
 
-  if (!texto || !texto.trim()) {
-    return res.status(400).send("mensaje vacío");
+    if (!texto || !texto.trim()) {
+      return res.status(400).send("mensaje vacío");
+    }
+
+    const { error } = await supabase
+      .from("mensajes")
+      .insert([{ 
+        texto: texto.trim(),
+        creado_en: new Date().toISOString()
+      }]);
+
+    if (error) throw error;
+
+    res.send("ok");
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("error");
   }
-
-  const { error } = await supabase
-    .from("mensajes")
-    .insert([{ texto }]);
-
-  if (error) {
-    return res.status(500).json({ error: error.message });
-  }
-
-  res.send("ok");
 });
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log("Servidor escuchando");
+  console.log("Servidor escuchando en puerto", PORT);
 });
