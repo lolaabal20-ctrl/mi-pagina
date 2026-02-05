@@ -3,32 +3,60 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Mi página</title>
+  <title>Mi página - Dejá tu mensaje</title>
   <link rel="stylesheet" href="styles.css" />
+  <meta name="description" content="Dejá tu mensaje y leé lo que otros tienen para decir">
 </head>
 <body>
 
   <main class="wrap">
     <section class="card">
       <header class="header">
-        <h1>Dejanos tu mensaje</h1>
-        <p class="subtitle">Contanos, te queremos leer</p>
+        <h1>Dejá tu mensaje</h1>
+        <p class="subtitle">contanos, queremos leerte</p>
       </header>
 
       <form id="formulario" class="form">
-        <label class="label" for="mensaje">Tu mensaje</label>
-        <textarea id="mensaje" placeholder="Escribí acá..."></textarea>
+        <label class="label" for="mensaje">
+          Tu mensaje
+          <span id="contador" class="contador">0/500</span>
+        </label>
+        <textarea 
+          id="mensaje" 
+          placeholder="Escribí acá..."
+          maxlength="500"
+          required
+        ></textarea>
 
         <div class="actions">
-          <button type="submit" class="btn">Enviar</button>
+          <button type="submit" class="btn" id="btnEnviar">
+            <span class="btn-text">Enviar</span>
+            <span class="btn-spinner" style="display:none;">●</span>
+          </button>
           <span id="estado" class="estado"></span>
         </div>
       </form>
 
       <hr class="divider" />
 
-      <h2 class="sectionTitle">Mensajes</h2>
+      <div class="messages-header">
+        <h2 class="sectionTitle">Mensajes</h2>
+        <button id="btnRecargar" class="btn-reload" title="Recargar mensajes">↻</button>
+      </div>
+      
+      <div id="cargando" class="cargando" style="display:none;">
+        Cargando mensajes...
+      </div>
+      
+      <div id="errorCarga" class="error-mensaje" style="display:none;">
+        No se pudieron cargar los mensajes. <button id="btnReintentar" class="btn-link">Reintentar</button>
+      </div>
+      
       <ul id="listaMensajes" class="lista"></ul>
+      
+      <div id="sinMensajes" class="sin-mensajes" style="display:none;">
+        Todavía no hay mensajes. ¡Sé el primero en dejar uno!
+      </div>
     </section>
 
     <footer class="footer">
@@ -38,5 +66,4 @@
 
   <script src="script.js"></script>
 </body>
-
 </html>
