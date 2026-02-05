@@ -26,7 +26,17 @@ textarea.addEventListener("input", () => {
 
 // Función para formatear fecha
 function formatearFecha(fechaISO) {
+  if (!fechaISO) {
+    return "Recién";
+  }
+  
   const fecha = new Date(fechaISO);
+  
+  // Verificar si la fecha es válida
+  if (isNaN(fecha.getTime())) {
+    return "Recién";
+  }
+  
   const ahora = new Date();
   const diferencia = ahora - fecha;
   
